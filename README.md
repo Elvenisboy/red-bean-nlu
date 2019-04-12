@@ -1,0 +1,1 @@
+在data/origin_data.txt中放入待标注的句子，每行可以放一个句子 

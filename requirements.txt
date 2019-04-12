@@ -1,0 +1,6 @@
+numpy==1.15.4
+tqdm==4.29.1
+Keras==2.2.4
+pytorch_pretrained_bert==0.6.1
+torch==1.0.1
+scikit_learn==0.20.3

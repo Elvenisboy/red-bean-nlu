@@ -1,0 +1,2 @@
+- ./requirements.txt文件的生成： `pipreqs ./`
+- UnicodeDecodeError: 'gbk' codec can't decode：`pipreqs ./ --encoding=utf-8 --force`
