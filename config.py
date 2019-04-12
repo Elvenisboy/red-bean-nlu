@@ -6,6 +6,7 @@ config_path = os.path.dirname(os.path.abspath(__file__))
 class Config:
     def __init__(self):
         self.data = os.path.join(config_path, 'data', 'data.json')
+        self.origin_data = os.path.join(config_path, 'data', 'origin_data.txt')
         self.slot2id = os.path.join(config_path, 'data', 'slot2id.json')
         # vocab name: bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese
         self.vocab_name_or_path = os.path.join(config_path, 'data', 'bert-base-chinese-vocab.txt')

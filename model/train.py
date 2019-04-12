@@ -67,10 +67,10 @@ def train(model, device,  train_data, val_data, epochs, max_grad_norm):
         pbar = tqdm(total=data_length, ascii=True)
         for step, batch in enumerate(train_data):
             batch = tuple(t.to(device) for t in batch)
-            b_input_ids, b_input_mask, b_labels = batch
+            x, mask, y = batch
             
-            loss = model(b_input_ids, token_type_ids=None,
-                        attention_mask=b_input_mask, labels = b_labels)
+            loss = model(x, token_type_ids=None,
+                        attention_mask=mask, labels=y)
             
             loss.backward()
             
@@ -83,7 +83,7 @@ def train(model, device,  train_data, val_data, epochs, max_grad_norm):
             model.zero_grad()
 
             pbar.set_description("Train loss: {}".format(tr_loss/nb_tr_steps))
-            pbar.update(b_input_ids.size(0))
+            pbar.update(x.size(0))
 
         pbar.set_description("Train loss: {}".format(tr_loss/nb_tr_steps)) 
         model.eval()
@@ -93,24 +93,24 @@ def train(model, device,  train_data, val_data, epochs, max_grad_norm):
 
         for batch in valid_dataloader:
             batch = tuple(t.to(device) for t in batch)
-            b_input_ids, b_input_mask, b_labels = batch       
+            x, mask, y = batch       
 
             with torch.no_grad():
-                logits = model(b_input_ids, token_type_ids=None,
-                                    attention_mask=b_input_mask)
+                logits = model(x, token_type_ids=None,
+                                    attention_mask=mask)
                 logits = logits.detach().cpu().numpy()
-                label_ids = b_labels.to('cpu').numpy()
+                y_ids = y.to('cpu').numpy()
                 
                 predictions.extend([list(p) for p in np.argmax(logits, axis=2)])
                 true_labels.append(label_ids)
                 
-                tmp_eval_accuracy = _flat_accuracy(logits, label_ids)
+                tmp_eval_accuracy = _flat_accuracy(logits, y_ids)
                 
                 eval_accuracy += tmp_eval_accuracy
 
                 nb_eval_steps += 1
 
-                pbar.update(b_input_ids.size(0))
+                pbar.update(x.size(0))
 
         pbar.set_description("Train loss: {} , Validation Accuracy: {}".format(tr_loss/nb_tr_steps, eval_accuracy/nb_eval_steps)) 
         pbar.close()
