@@ -24,37 +24,54 @@ async def read_data(request):
     if not os.path.exists(config.origin_data):
         return json({'error':'origin data is not exist'})
 
-    state = 0        
+    state_json = {'state': 0}        
 
     if not os.path.exists(config.data_state):
         with open(config.data_state, 'w') as state_file:
-            state_file.write('0')
+            j.dump(state_json, state_file, ensure_ascii=False)
 
-    state_file =  open(config.data_state, 'w+')
-    print('data:', state_file.read())  
+    with open(config.data_state, 'r') as state_file:
+        state_json = j.load(state_file)
+
+    with open(config.origin_data, 'r', encoding='utf-8') as origin_data:
+        datas =  origin_data.readlines()         
+
+    data_size = len(datas)
+    state = state_json['state']
+    data = datas[state].strip('\n')
     
-    print('-1:', state_file.read())
-    print('-2:', state_file.readlines())
+    state_json = {'state': state + 1}
 
-    if state_file.read() is '':
-        state_file.write('0')
+    if state+1 < data_size: 
+        with open(config.data_state, 'w') as state_file:
+            j.dump(state_json, state_file, ensure_ascii=False)
+
+    return json({'data': data}, ensure_ascii=False)
+
+@app.route('/api/data_size')
+async def read_data_size(request):
+    if not os.path.exists(config.origin_data):
+        return json({'error':'origin data is not exist'})
+
+    with open(config.origin_data, 'r', encoding='utf-8') as origin_data:
+        datas =  origin_data.readlines()     
+
+    return json({'size': len(datas)})                
+
+@app.route('/api/read_data/<row>')
+async def read_data_by_row(request, row):
+    if not os.path.exists(config.origin_data):
+        return json({'error':'origin data is not exist'})
+
+    with open(config.origin_data, 'r', encoding='utf-8') as origin_data:
+        datas =  origin_data.readlines() 
+
+    data = ''
+    row = int(row)
+    if row > len(datas):
+        data = datas.pop().strip('\n')
     else:
-        state = int(state_file.read())
-        print('0:', state)
-
-    with open(config.origin_data, 'r', encoding='utf-8') as data_file:
-        datas = data_file.readlines()
-        print(datas)
-
-        data = datas[state].strip('\n')
-        state = int(state) + 1
-        print('1:', state)
-        state_file.seek(0)
-        state_file.truncate()
-        state_file.write(str(state))
-        state_file.close()
-        return json({'hello': data})
-
+        data = datas[row-1].strip('\n')
+    return json({'data': data}, ensure_ascii=False)        
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8000)
-

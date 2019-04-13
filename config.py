@@ -8,7 +8,7 @@ class Config:
         self.data = os.path.join(config_path, 'data', 'data.json')
         self.origin_data = os.path.join(config_path, 'data', 'origin_data.txt')
         self.slot2id = os.path.join(config_path, 'data', 'slot2id.json')
-        self.data_state = os.path.join(config_path, 'data', 'data_state.txt')
+        self.data_state = os.path.join(config_path, 'data', 'data_state.json')
         # vocab name: bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese
         self.vocab_name_or_path = os.path.join(config_path, 'data', 'bert-base-chinese-vocab.txt')
         # model name: bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese
