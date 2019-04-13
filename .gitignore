@@ -7,7 +7,7 @@ data/bert-base-chinese.tar.gz
 origin_data.txt
 data/data.json
 data/slot2id.json
-data/data_state.txt
+data/data_state.json
 
 .idea
 .vscode
