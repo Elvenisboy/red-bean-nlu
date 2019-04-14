@@ -1,5 +1,6 @@
 import os
 import sys
+import math
 import json as j
 
 from sanic import Sanic
@@ -58,7 +59,7 @@ async def read_data_size(request):
 
     return json({'size': len(datas)})                
 
-@app.route('/api/read_data/<row>')
+@app.route('/api/read_data/<row:int>')
 async def read_data_by_row(request, row):
     if not os.path.exists(config.origin_data):
         return json({'error':'origin data is not exist'})
@@ -67,11 +68,33 @@ async def read_data_by_row(request, row):
         datas =  origin_data.readlines() 
 
     data = ''
-    row = int(row)
     if row > len(datas):
         data = datas.pop().strip('\n')
     else:
         data = datas[row-1].strip('\n')
-    return json({'data': data}, ensure_ascii=False)        
+    return json({'data': data}, ensure_ascii=False)
+
+@app.route('/api/read_datas/<page:int>')
+async def read_data_by_page(request, page):
+    if not os.path.exists(config.origin_data):
+        return json({'error':'origin data is not exist'})
+
+    with open(config.origin_data, 'r', encoding='utf-8') as origin_data:
+        datas =  origin_data.readlines() 
+
+    pages = len(datas) / config.page_limit
+    pages = math.ceil(pages)
+
+    if page > pages:
+        page = pages
+
+    start = (config.page_limit * (page - 1))
+    end = start + config.page_limit
+
+    data = datas[start:end]
+    data = [d.strip('\n') for d in data]
+
+    return json({'data': data, 'pages': pages}, ensure_ascii=False)
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8000)
