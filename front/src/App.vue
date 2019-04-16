@@ -6,6 +6,10 @@
         <span>控制面板</span>
       </div>
       <div class="left-side-content">
+        <span>slots</span>
+
+        <span>intents</span>
+
         <span>历史记录</span>
 
         <div class="history-list">
@@ -93,7 +97,8 @@
         </div>
 
         <div class="actions">
-          <span>-></span>
+          <span><span class="icon-arrow-left2"></span></span>
+          <span><span class="icon-arrow-right2"></span></span>
         </div>
       </div>
     </div>
@@ -112,9 +117,12 @@ export default {
 </script>
 
 <style>
+@import '~@/assets/style.css';
+
 body {
   padding: 0;
   margin: 0;
+  color: #666;
 }
 
 #app {
@@ -149,7 +157,8 @@ body {
 }
 
 .labels span {
-  background: blue;
+  /* background: blue; */
+  background:#f5f5f5;
   padding: 15px;
   min-width: 50px;
   margin-right: 15px;
@@ -174,14 +183,15 @@ body {
   height:20vh;
   /* background: blue; */
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
 .actions span {
-  padding:20px 25px;
-  background: greenyellow;
+  padding:20px 35px;
+  background: #363b3e;
   font-size: 20px;
+  color: #fff
 }
 
 #app .left-side {
@@ -211,6 +221,12 @@ body {
 .left-side-content {
   text-align: left;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.left-side-content span {
+  margin-bottom: 20px;
 }
 
 .history-list ul {
@@ -219,12 +235,7 @@ body {
   padding: 0;
 }
 
-.history-list ul li:nth-child(1) {
-  padding-top: 20px;
-}
-
 .history-list ul li {
-  /* list-style-type: none; */
   padding: 5px 0;
 }
 </style>
