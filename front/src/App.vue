@@ -59,7 +59,6 @@
     </div>
     <div class="center">
       <div class="center-wraper">
-        
         <h3>Slots:</h3>
         <div class="labels">
           <span>1</span>
@@ -124,7 +123,24 @@ export default {
   name: "app",
   components: {
     // HelloWorld
-  }
+  },
+  methods: {
+    getMessage() {
+      const path = 'http://localhost:8000/api/read_datas/1';
+      this.axios.get(path)
+        .then((res) => {
+          console.log(res.data)
+        })
+        .catch((error) => {
+          // eslint-disable-next-line
+          console.error(error);
+        });
+    },
+  },
+  created() {
+    // console.log(this)
+    this.getMessage();
+  },
 };
 </script>
 
