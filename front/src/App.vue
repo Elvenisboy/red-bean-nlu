@@ -7,8 +7,32 @@
       </div>
       <div class="left-side-content">
         <span>slots</span>
+        <div class="slots">
+          <span>你是个傻子呀</span>
+          <span>mdzz</span>
+          <span>mdzz</span>
+          <span>你是个傻子呀</span>
+          <span>你是个傻子呀</span>
+          <span>你是个傻子呀</span>
+          <span>你是个傻子呀</span>
+          <span>你是个傻子呀</span>
+          <span>你是个傻子呀</span>
+          <span>你是个傻子呀</span>
+        </div>
 
         <span>intents</span>
+        <div class="intents">
+          <span>你是个傻子呀</span>
+          <span>mdzz</span>
+          <span>mdzz</span>
+          <span>你是个傻子呀</span>
+          <span>你是个傻子呀</span>
+          <span>你是个傻子呀</span>
+          <span>你是个傻子呀</span>
+          <span>你是个傻子呀</span>
+          <span>你是个傻子呀</span>
+          <span>你是个傻子呀</span>
+        </div>
 
         <span>历史记录</span>
 
@@ -18,6 +42,12 @@
             <li>傻兔子</li>
             <li>怎么这么傻</li>
             <li>丢出出去算了 = =</li>
+            <li>丢出出去算了 = =</li>
+            <li>丢出出去算了 = =</li>
+            <li>丢出出去算了 = =</li>
+            <li>丢出出去算了 = =</li>
+            <li>丢出出去算了 = =</li>
+
           </ul>
         </div>
       </div>
@@ -26,58 +56,6 @@
       <div class="center-wraper">
         <div class="labels">
           <span>1</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
-          <span>你是个二傻子</span>
           <span>你是个二傻子</span>
           <span>你是个二傻子</span>
         </div>
@@ -97,8 +75,12 @@
         </div>
 
         <div class="actions">
-          <span><span class="icon-arrow-left2"></span></span>
-          <span><span class="icon-arrow-right2"></span></span>
+          <span>
+            <span class="icon-arrow-left2"></span>
+          </span>
+          <span>
+            <span class="icon-arrow-right2"></span>
+          </span>
         </div>
       </div>
     </div>
@@ -117,7 +99,7 @@ export default {
 </script>
 
 <style>
-@import '~@/assets/style.css';
+@import "~@/assets/style.css";
 
 body {
   padding: 0;
@@ -129,13 +111,10 @@ body {
   display: flex;
   flex: 1;
   flex-direction: row;
-  /* justify-content: space-around; */
-  /* align-items: center */
 }
 
 #app .center {
   width: 100%;
-  /* padding: 20px; */
   height: 100vh;
 }
 
@@ -147,18 +126,16 @@ body {
 }
 
 .center .labels {
-  max-height: 30vh;
-  /* margin-bottom: 10px; */
+  max-height: 25vh;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
   overflow-y: scroll;
 }
 
 .labels span {
-  /* background: blue; */
-  background:#f5f5f5;
+  background: #f5f5f5;
   padding: 15px;
   min-width: 50px;
   margin-right: 15px;
@@ -180,18 +157,18 @@ body {
 }
 
 .center .actions {
-  height:20vh;
-  /* background: blue; */
+  height: 20vh;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 
 .actions span {
-  padding:20px 35px;
+  margin-top: 20vh;
+  padding: 20px 35px;
   background: #363b3e;
   font-size: 20px;
-  color: #fff
+  color: #fff;
 }
 
 #app .left-side {
@@ -203,7 +180,7 @@ body {
 }
 
 .left-side .left-side-header {
-  height: 60px;
+  height: 10vh;
   text-align: center;
   width: 100%;
   display: flex;
@@ -220,9 +197,35 @@ body {
 
 .left-side-content {
   text-align: left;
-  padding: 20px;
+  padding: 0 20px;
   display: flex;
   flex-direction: column;
+}
+
+.left-side-content .slots,
+.intents {
+  max-height: 25vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+}
+
+.left-side-content .slots span {
+  border: 1px solid #363b3e;
+  padding: 5px;
+  height: 20px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
+
+.left-side-content .intents span {
+  border: 1px solid #363b3e;
+  padding: 5px;
+  height: 20px;
+  margin-right: 5px;
+  margin-bottom: 10px;
 }
 
 .left-side-content span {
@@ -233,6 +236,8 @@ body {
   list-style: none;
   margin: 0;
   padding: 0;
+  max-height: 20vh;
+  overflow-y: scroll;
 }
 
 .history-list ul li {
