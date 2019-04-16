@@ -6,7 +6,10 @@
         <span>控制面板</span>
       </div>
       <div class="left-side-content">
-        <span>slots</span>
+        <div class="left-side-content-title">
+          <span>slots</span>
+          <span class="icon-plus"></span>
+        </div>
         <div class="slots">
           <span>你是个傻子呀</span>
           <span>mdzz</span>
@@ -20,7 +23,10 @@
           <span>你是个傻子呀</span>
         </div>
 
-        <span>intents</span>
+        <div class="left-side-content-title">
+          <span>intents</span>
+          <span class="icon-plus"></span>
+        </div>
         <div class="intents">
           <span>你是个傻子呀</span>
           <span>mdzz</span>
@@ -47,7 +53,6 @@
             <li>丢出出去算了 = =</li>
             <li>丢出出去算了 = =</li>
             <li>丢出出去算了 = =</li>
-
           </ul>
         </div>
       </div>
@@ -228,8 +233,15 @@ body {
   margin-bottom: 10px;
 }
 
-.left-side-content span {
-  margin-bottom: 20px;
+.left-side-content-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-side-content .left-side-content-title span {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .history-list ul {
