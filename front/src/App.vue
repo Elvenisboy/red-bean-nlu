@@ -59,24 +59,49 @@
     </div>
     <div class="center">
       <div class="center-wraper">
+        
+        <h3>Slots:</h3>
         <div class="labels">
           <span>1</span>
           <span>你是个二傻子</span>
           <span>你是个二傻子</span>
+          <span>你是个二傻子</span>
+          <span>你是个二傻子</span>
+          <span>你是个二傻子</span>
+          <span>你是个二傻子</span>
+          <span>你是个二傻子</span>
+          <span>你是个二傻子</span>
+          <span>你是个二傻子</span>
+          <span>你是个二傻子</span>
+          <span>你是个二傻子</span>
+          <span>你是个二傻子</span>
         </div>
+
+        <h3>Text:</h3>
         <div class="text">
-          <span>小</span>
-          <span>明</span>
+          <span class="activate">
+            小明
+            <small>人物</small>
+          </span>
           <span>想</span>
           <span>要</span>
           <span>在</span>
-          <span>周</span>
-          <span>末</span>
+          <span class="activate">
+            周末
+            <small>人物</small>
+          </span>
           <span>和</span>
           <span>朋</span>
           <span>友</span>
           <span>吃</span>
           <span>饭</span>
+        </div>
+
+        <h3>Intents:</h3>
+        <div class="center-intents">
+          <span>1</span>
+          <span>你是个二傻子</span>
+          <span>你是个二傻子</span>
         </div>
 
         <div class="actions">
@@ -148,9 +173,15 @@ body {
 }
 
 .center .text {
-  margin-top: 20px;
+  margin-bottom: 20px;
   font-size: 20px;
-  height: 40vh;
+  /* height: 20vh; */
+}
+
+.center .text .activate {
+  background: #363b3e;
+  padding: 10px 20px;
+  color: #fff;
 }
 
 .center .text span:nth-child(1) {
@@ -161,6 +192,28 @@ body {
   margin-left: 10px;
 }
 
+.center .text span small {
+  font-size: 5px;
+}
+
+.center .center-intents {
+  max-height: 20vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  margin: 20px;
+}
+
+.center span {
+  background: #f5f5f5;
+  padding: 15px;
+  min-width: 50px;
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
+
 .center .actions {
   height: 20vh;
   display: flex;
@@ -169,7 +222,7 @@ body {
 }
 
 .actions span {
-  margin-top: 20vh;
+  /* margin-top: 20vh; */
   padding: 20px 35px;
   background: #363b3e;
   font-size: 20px;
@@ -178,7 +231,7 @@ body {
 
 #app .left-side {
   width: 25%;
-  height: 100vh;
+  min-height: 100vh;
   background: #fff;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
   z-index: 2;
