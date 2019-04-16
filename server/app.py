@@ -71,7 +71,7 @@ async def read_data_by_row(request, row):
     if row > len(datas):
         data = datas.pop().strip('\n')
     else:
-        data = datas[row-1].strip('\n')
+        data = datas[row].strip('\n')
     return json({'data': data}, ensure_ascii=False)
 
 @app.route('/api/read_datas/<page:int>')
@@ -93,6 +93,9 @@ async def read_data_by_page(request, page):
 
     data = datas[start:end]
     data = [d.strip('\n') for d in data]
+    
+    items = range(start, end)
+    data = {items[index]: item for index, item in enumerate(data)}
 
     return json({'data': data, 'pages': pages}, ensure_ascii=False)
 
